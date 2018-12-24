@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: sbtech-slack-invite-ingress
+spec:
+  rules:
+  - host: sbtechcoop.com
+    http:
+      paths:
+      - backend:
+          serviceName: sbtech-slack-invite
+          servicePort: 80
+  - host: www.sbtechcoop.com
+    http:
+      paths:
+      - backend:
+          serviceName: sbtech-slack-invite
+          servicePort: 80

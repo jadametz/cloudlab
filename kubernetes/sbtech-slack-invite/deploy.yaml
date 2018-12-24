@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sbtech-slack-invite
+  labels:
+    app: sbtech-slack-invite
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sbtech-slack-invite
+  template:
+    metadata:
+      labels:
+        app: sbtech-slack-invite
+    spec:
+      containers:
+      - name: sbtech-slack-invite
+        image: outsideris/slack-invite-automation
+        env:
+        - name: COMMUNITY_NAME
+          value: "SB Tech Co-op"
+        - name: SLACK_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: sbtech-slack-invite
+              key: slack_token
+        - name: SLACK_URL
+          value: sbtechcoop.slack.com
+        ports:
+        - containerPort: 3000

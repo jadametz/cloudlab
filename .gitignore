@@ -1,2 +1,5 @@
 .terraform
 *.tfstate*
+.gitsecret/keys/random_seed
+
+*secrets.yaml

@@ -2,4 +2,4 @@
 *.tfstate*
 .gitsecret/keys/random_seed
 
-kubernetes/sbtech-slack-invite/sbtech-slack-invite-secrets.yaml
+*secrets.yaml

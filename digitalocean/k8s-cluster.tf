@@ -9,11 +9,3 @@ resource "digitalocean_kubernetes_cluster" "k8s" {
         node_count  = 1
     }
 }
-
-provider "kubernetes" {
-    host = "${digitalocean_kubernetes_cluster.k8s.endpoint}"
-
-    client_certificate      = "${base64decode(digitalocean_kubernetes_cluster.k8s.kube_config.0.client_certificateb)}"
-    client_key              = "${base64decode(digitalocean_kubernetes_cluster.k8s.kube_config.0.client_key)}"
-    cluster_ca_certificate  = "${base64decode(digitalocean_kubernetes_cluster.k8s.kube_config.0.cluster_ca_certificate_)}"
-}

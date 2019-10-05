@@ -20,6 +20,16 @@ spec:
         env:
         - name: COMMUNITY_NAME
           value: "SB Tech Co-op"
+        - name: RECAPTCHA_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: sbtech-slack-invite
+              key: recaptcha_secret
+        - name: RECAPTCHA_SITE
+          valueFrom:
+            secretKeyRef:
+              name: sbtech-slack-invite
+              key: recaptcha_site
         - name: SLACK_TOKEN
           valueFrom:
             secretKeyRef:

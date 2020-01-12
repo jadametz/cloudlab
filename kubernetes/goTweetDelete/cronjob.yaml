@@ -1,0 +1,40 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: go-tweet-delete
+spec:
+  # 8:00AM PDT
+  schedule: "0 15 * * *"
+  concurrencyPolicy: Replace
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: go-tweet-delete
+            image: jadametz/gotweetdelete
+            imagePullPolicy: Always
+            env:
+            - name: ACCESSSECRET
+              valueFrom:
+                secretKeyRef:
+                  name: go-tweet-delete
+                  key: accesssecret
+            - name: ACCESSTOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: go-tweet-delete
+                  key: accesstoken
+            - name: CONSUMERKEY
+              valueFrom:
+                secretKeyRef:
+                  name: go-tweet-delete
+                  key: consumerkey
+            - name: CONSUMERSECRET
+              valueFrom:
+                secretKeyRef:
+                  name: go-tweet-delete
+                  key: consumersecret
+            - name: SCREENNAME
+              value: jesseadametz
+          restartPolicy: OnFailure

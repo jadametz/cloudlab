@@ -35,6 +35,8 @@ spec:
                 secretKeyRef:
                   name: go-tweet-delete
                   key: consumersecret
+            - name: ENVIRONMENT
+              value: production
             - name: SCREENNAME
               value: jesseadametz
           restartPolicy: OnFailure

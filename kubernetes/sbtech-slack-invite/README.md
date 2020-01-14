@@ -6,4 +6,8 @@ This app provides [Slack invite automation](https://github.com/outsideris/slack-
 
 ### Secrets
 
-* `slack_token` is a private value and should not be source controlled. The value should be added after applying `secrets.yaml`.
+The following are private values and should not be source controlled. The values should be added after applying `secrets.yaml`.
+
+* `recaptcha_secret`
+* `recaptcha_site`
+* `slack_token`

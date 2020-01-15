@@ -46,8 +46,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: external-dns
-  labels:
-    app: external-dns
 spec:
   replicas: 1
   selector:
@@ -55,6 +53,9 @@ spec:
       app: external-dns
   strategy:
     type: Recreate
+  selector:
+    matchLabels:
+      app: external-dns
   template:
     metadata:
       labels:

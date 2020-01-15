@@ -5,5 +5,5 @@ The blackbox exporter allows blackbox probing of endpoints over HTTP, HTTPS, DNS
 ## Setup
 
 ```bash
-$ helm install --name prom-blackbox-exporter stable/prometheus-blackbox-exporter
+$ helm install prom-blackbox-exporter stable/prometheus-blackbox-exporter
 ```
